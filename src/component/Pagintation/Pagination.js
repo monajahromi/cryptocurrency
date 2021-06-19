@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
-const Pagination = ({pagesCount  , activePage ,setActivePage , listSize = 20, setListSize}) => {
+const Pagination = ({pagesCount  , activeParent  ,setActiveParent , listSize = 20, setListSize}) => {
 
-    const[active , setActive]  = useState({activePage})
+    const[active , setActive]  = useState({activeParent})
     const[listS , setListS] = useState(listSize)
+    const[fromPage , setFromPage] = useState(1)
     const availableListSizes=[20, 50, 100]
     
     
 
     useEffect(()=>{
-        setActive(activePage)  
+        setActive(activeParent)  
         setListS(listSize)
         
-    },[activePage,listSize])
+    },[activeParent,listSize])
 
     const handelChangePage =(item) =>{
-        setActivePage(item)
+        setActiveParent(item)
         setActive(item)  
     }
 
@@ -24,18 +25,41 @@ const Pagination = ({pagesCount  , activePage ,setActivePage , listSize = 20, se
         setListSize(item)
     }
 
+    const handelOnNextPage =()=> {
+        setActiveParent(active+1)
+        setActive(active+1)  
+        setFromPage(fromPage + 1)
+    }
+
+    const handelOnPreviuosPage =()=> {
+        setActiveParent(active-1)
+        setActive(active-1)  
+        setFromPage(fromPage - 1)
+    }
+
     return (
         <div>
-            aaa{pagesCount}{activePage}
+            
             <ul>
-                {Array.from({length: pagesCount}, (_, i) => i + 1).map((item)=>{
+            <button onClick={()=> handelOnPreviuosPage()} >PreviuosPage</button>
+                {pagesCount < 1116 && Array.from({length: pagesCount}, (_, i) => i ).map((item)=>{
                     if (item == active)
-                    return <button >{item} *</button>
+                    return <button >{item+1} *</button>
                     else 
-                    return <button onClick={()=> handelChangePage(item)}>{item} </button>
+                    return <button onClick={()=> handelChangePage(item)}>{item+1} </button>
                 }
                 
                 )}
+
+                {pagesCount >= 6 && Array.from({length: 5}, (_, i) => i + fromPage ).map((item)=>{
+                    if (item == active)
+                    return <button >{item+1} *</button>
+                    else 
+                    return <button onClick={()=> handelChangePage(item+1)}>{item} </button>
+                }
+                
+                )}
+                <button onClick={()=> handelOnNextPage()} >nextPage</button>
             </ul>
 
             <ul>

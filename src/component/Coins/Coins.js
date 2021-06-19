@@ -26,6 +26,8 @@ const Coins = () => {
       setMsg({ type: notifyType.error, text: data.error })
 
     else {
+     // data.map((item,index) =>item[index] = index) ; 
+      data.map((item,index)=>data[index] =  {index : index ,  ...item })
       setMsg({ type: notifyType.success, text: "Good" })
       setCoins(data);
 
@@ -81,11 +83,11 @@ const Coins = () => {
         <div>
           {currentCoinsList.map((item, index) => {
             if (item) {
-              return <CoinItem name={item.name} symbol={item.symbol} key={item.id}> </CoinItem>
+              return <CoinItem name={item.name} symbol={item.symbol} index = {item.index} key={item.id}> </CoinItem>
             }
           })}
         </div>
-        <Pagination pagesCount={pagesCount} activePage={activePage} setActivePage={setActivePage} listSize={listSize} setListSize={setListSize}></Pagination>
+        <Pagination pagesCount={pagesCount} activeParent={activePage} setActiveParent={setActivePage} listSize={listSize} setListSize={setListSize}></Pagination>
 
       </>
     );

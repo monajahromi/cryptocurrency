@@ -6,6 +6,7 @@ const CoinItem = (props) => {
         <div>
             symbol : {props.symbol}
             name  : {props.name}
+            index  : {props.index}
             
         </div>
     );
