@@ -1,19 +1,15 @@
 import React from 'react';
 
-const notifyType=  {"error":"Error" , "success" : "Done" , "warn" : "Warning "}
-Object.freeze(notifyType) ; 
 
-
-const Notify = ({type , text} ) => {
+const Notify = ({ text }) => {
     return (
         <div>
-            <ul>
-                <li>{type}</li>
-                <li>{text}</li>
-            </ul>   
+
+            {text}
+
         </div>
     );
 };
 
-export { notifyType };
-export default Notify ;
+
+export default Notify;

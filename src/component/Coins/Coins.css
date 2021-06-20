@@ -1,0 +1,21 @@
+.coinsHeader  th {
+
+    font-weight: 700 !important; 
+}
+
+
+.pageHaader{
+    font-weight: 700 !important; 
+}
+
+.coinInfoBtn span {
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+    flex-direction: column;
+ }
+
+
+ .prices{
+     
+ }

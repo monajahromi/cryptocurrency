@@ -16,3 +16,9 @@ export const getList = () =>{
     return baseFetch("list ")
 
 }
+
+export const getById = (id) =>{
+    
+    return baseFetch(id)
+
+}
