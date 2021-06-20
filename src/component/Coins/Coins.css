@@ -6,6 +6,8 @@
 
 .pageHaader{
     font-weight: 700 !important; 
+    display: flex;
+    align-items: center;
 }
 
 .coinInfoBtn span {
@@ -15,7 +17,18 @@
     flex-direction: column;
  }
 
+.coinInfoBtn :hover {
+    color :#3f51b5
+}
+
+
 
  .prices{
-     
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ }
+
+ .priceItem{
+     width: 25% !important;
  }

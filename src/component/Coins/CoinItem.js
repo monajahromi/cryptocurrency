@@ -3,7 +3,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import ChromeReaderModeIcon from '@material-ui/icons/ChromeReaderMode';
+import AttachMoney from '@material-ui/icons/AttachMoney';
 import './Coins.css'
 
 
@@ -19,9 +19,9 @@ const CoinItem = ({coin}) => {
                             <TableCell align="left">{coin.name}</TableCell>
                             <TableCell align="left">{coin.symbol}</TableCell>
                             <TableCell align="right">
-                                            <Button to={`/coininfo${coin.id}`} component={Link}  className="coinInfoBtn">
-                                                <ChromeReaderModeIcon />
-                                                Infromation
+                                            <Button to={`/coininfo${coin.id}`} component={Link}  className="coinInfoBtn" >
+                                                <AttachMoney />
+                                                Prices
                                             </Button>
                             </TableCell>
 

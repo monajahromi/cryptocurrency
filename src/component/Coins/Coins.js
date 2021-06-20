@@ -86,7 +86,7 @@ const Coins = () => {
    return (
   
 
-      <Grid item lg={10} >
+      <Grid item lg={12} >
 
 
         <ListItem className="pageHaader">
@@ -104,6 +104,7 @@ const Coins = () => {
                 <TableCell align="left">#</TableCell>
                 <TableCell align="left">Name</TableCell>
                 <TableCell align="left">Symbol</TableCell>
+                <TableCell align="left"></TableCell>
 
               </TableRow>
             </TableHead>

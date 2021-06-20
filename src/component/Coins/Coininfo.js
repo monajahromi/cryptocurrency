@@ -7,6 +7,7 @@ import Notify from '../Notify/Notify.js';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import './Coins.css'
+import { Typography } from '@material-ui/core';
 
 
 
@@ -61,35 +62,30 @@ const Coininfo = () => {
   return <div>{"isLoading"}</div>
 
     return (
-        <Grid item lg={10} >
+        <Grid item lg={12} >
 
 
-        <ListItem className="pageHaader">
-        <Avatar src={coinInfo.image.small}></Avatar>
-          Coins market Data 
-
-        </ListItem>
+       
         {msg && <Notify text={msg}></Notify>}
         
         {coinInfo &&
+          <>
+         <div className="pageHaader">
+         <Avatar src={coinInfo.image.small}></Avatar>
+           <Typography style={{marginLeft : '10px'}}>Coins market Data </Typography>
+ 
+         </div>
+        
             <div className="prices" >
-             Object.keys(coinInfo.market_data.current_price).map(item=> 
-                {
-                    return  <ListItem ><ListItemText primary={item} dense = "true" secondary={coinInfo.market_data.current_price[item]} /> </ListItem>
-                    
-                  //  <div>{item} {coinInfo.market_data.current_price[item]}</div>
-                }
-        
-        
-                )
+            { Object.keys(coinInfo.market_data.current_price).map(item=>
+            <ListItem className="priceItem" ><ListItemText primary={item} dense = "true" secondary={coinInfo.market_data.current_price[item]} /> </ListItem>)
+            }    
             </div>    
-            }
-             
+            </>
+            
+          }    
            
-        // <div>
-           
-        //     {coinInfo.asset_platform_id}
-        // </div>
+        
         
         </Grid>
     );
